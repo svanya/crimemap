@@ -57,7 +57,7 @@ class DBHelper:
         try:
             query = "SELECT latitude, longitude, date, category, description FROM crimes;"
             with connection.cursor() as cursor:
-                cursor.execute()
+                cursor.execute(query)
             named_crime = {
                 'latitude': crime[0],
                 'longitude': crime[1],
