@@ -18,6 +18,18 @@
                 google.maps.event.addListener(map, 'click', function (event) {
                     placeMarker(event.latLng);
                 });
+                placeCrimes({{ crimes | safe }})
+            }
+
+            function placeCrimes(crimes) {
+                for (i=0; i<crimes.length; i++) {
+                    crime = new google.maps.Marker({
+                        position: new google.maps.LatLng(crimes[i].latitude, crimes[i].longitude),
+                        map: map,
+                        title: crimes[i].date + "\n" + crimes[i].category + "\n" + crimes[i].description
+                    }
+                    );
+                }
             }
 
             function placeMarker(location) {
@@ -50,7 +62,7 @@
             <input name="date" id="date" type="date">
             <label for="latitude">Latitude</label>
             <input name="latitude" id="latitude" type="text">
-            <label for="logitude">Longitude</label>
+            <label for="longitude">Longitude</label>
             <input name="longitude" id="longitude" type="text">
             <label for="description">Description</label>
             <textarea name="description" id="description" placeholder="A brief but detailed description of the crime"></textarea>
