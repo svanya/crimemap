@@ -26,7 +26,8 @@ def format_date(userdate):
 
 def sanitize_string(userinput):
     whitelist = string.ascii_letters + string.digits + " !?$.,;:-'()&"
-    return filter(lambda x: x in whitelist, userinput)
+    sv_patch = list(filter(lambda x: x in whitelist, userinput))
+    return sv_patch
 
 
 @app.route("/")
