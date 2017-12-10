@@ -13,7 +13,7 @@ else:
 
 app = Flask(__name__)
 DB = DBHelper()
-categories = ['přepadení', 'vloupání']
+categories = ['mugging', 'breakin']
 
 
 def format_date(userdate):
